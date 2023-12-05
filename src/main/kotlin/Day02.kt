@@ -59,10 +59,9 @@ fun main(args: Array<String>) {
         print(powerSum)
     }
 
-    val input = object {}.javaClass.getResource("Day02_prod.txt").readText()
-    val games = input.split("\n").map {
-        if (it.isBlank()) null else makeGame(it)
-    }.filterNotNull()
+    val games = readInput(2, true).mapNotNull {
+        makeGame(it)
+    }
 
     part1(games)
     part2(games)

@@ -29,11 +29,9 @@ fun main(args: Array<String>) {
         return false
     }
 
-    fun process(input: String, allowText: Boolean) {
+    fun process(input: List<String>, allowText: Boolean) {
         var sum = 0
-        for (sourceStr in input.split("\n")) {
-            if (sourceStr.isBlank()) continue
-
+        for (sourceStr in input) {
             val stringBuilder = StringBuilder()
             for (i in sourceStr.indices) {
                 if (getDigit(sourceStr, i, stringBuilder, allowText)) break
@@ -46,15 +44,15 @@ fun main(args: Array<String>) {
         println(sum)
     }
 
-    fun part1(input: String) {
+    fun part1(input: List<String>) {
         process(input, false)
     }
 
-    fun part2(input: String) {
+    fun part2(input: List<String>) {
         process(input, true)
     }
 
-    val input = object {}.javaClass.getResource("Day01_prod.txt").readText()
+    val input = readInput(1, true)
     part1(input)
     part2(input)
 }
